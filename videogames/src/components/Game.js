@@ -1,27 +1,24 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 const Game = (props) => {
 
-
     return (
         <div>
-            <div className='display-games'>
+            <Link to={`/games/${props.id}`}>
 
                 <h3>Name : {props.name}</h3>
 
-                <div className='backimg'>
-                    <img src={props.background} alt={"img"} />
-                </div>
+            </Link>
 
-                <p>Rating : {props.rating}</p>
+            <img src={props.background} alt="img" />
 
-                <p>Released date : {props.released}</p>
+            <p>Rating : {props.rating}</p>
 
-                    <div className='buttonDelete'>
-                        <button onClick={() => props.onDelete(props.id)}>Supprimer un jeu</button>
-                    </div>
-            </div>
+            <p>Released date : {props.released}</p>
+
+
+            <button onClick={() => props.onDelete(props.id)}>Supprimer un jeu</button>
         </div>
     );
 };
